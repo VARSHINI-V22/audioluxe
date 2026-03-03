@@ -1,4 +1,4 @@
-// Product data
+
 const productData = {
     earbuds: [
         { name: 'AudioLuxe Elite', price: '$199', image: 'earbuds1', description: 'Premium wireless earbuds with ANC' },
@@ -148,7 +148,7 @@ const galleryData = {
     }
 };
 
-// Support content data (video tutorials removed)
+
 const supportContent = {
     guides: {
     title: 'User Guides',
@@ -277,7 +277,7 @@ const supportContent = {
     }
 };
 
-// Company content data
+
 const companyContent = {
     about: {
         title: 'About AudioLuxe',
@@ -345,7 +345,7 @@ const companyContent = {
     }
 };
 
-// Legal content data
+
 const legalContent = {
     privacy: {
         title: 'Privacy Policy',
@@ -413,32 +413,31 @@ const legalContent = {
     }
 };
 
-// Show purchase modal
-// Updated purchase modal function – accepts product details
+
 function showPurchaseModal(name, imageUrl, price, description) {
     const modal = document.getElementById('purchaseModal');
     
-    // Update product image, name, description, price
+   
     document.getElementById('modalProductImage').src = imageUrl;
     document.getElementById('modalProductImage').alt = name;
     document.getElementById('modalProductName').textContent = name;
     document.getElementById('modalProductDesc').textContent = description;
     document.getElementById('modalProductPrice').textContent = `$${price}`;
     
-    // Update order summary
+    
     document.getElementById('orderProductName').textContent = name;
     document.getElementById('orderProductPrice').textContent = `$${price}`;
     
-    // Calculate tax (10% for demo) and total
+   
     const tax = (price * 0.1).toFixed(2);
     const total = (price + parseFloat(tax)).toFixed(2);
     document.getElementById('orderTax').textContent = `$${tax}`;
     document.getElementById('orderTotal').textContent = `$${total}`;
     
-    // Show the modal
+  
     new bootstrap.Modal(modal).show();
 }
-// ✅ UPDATED: Gallery functions (now working with direct image URLs)
+
 function showGalleryDetail(type) {
     const data = galleryData[type];
     document.getElementById('galleryModalTitle').textContent = data.title;
@@ -485,7 +484,7 @@ function changeMainImage(imageUrl) {
     }
 }
 
-// Support/Company/Legal modals
+
 function showSupport(topic) {
     const data = supportContent[topic];
     document.getElementById('infoModalTitle').textContent = data.title;
@@ -507,15 +506,15 @@ function showLegal(topic) {
     new bootstrap.Modal(document.getElementById('infoModal')).show();
 }
 
-// Function for showing accessories (called from footer)
+
 function showProducts(category) {
     if (category === 'accessories') {
-        // You can enhance this to show a modal or navigate to an accessories page
+       
         alert('Accessories page coming soon!');
     }
 }
 
-// Display products (used by dynamic product pages – not heavily used in multi-page, but kept for completeness)
+
 function displayProducts(sectionId, title, subtitle, products) {
     const section = document.getElementById(sectionId);
     section.classList.add('active');
@@ -547,7 +546,7 @@ function displayProducts(sectionId, title, subtitle, products) {
     window.scrollTo(0, 0);
 }
 
-// Show home page (for single-page version, not used in multi-page but kept)
+
 function showHome() {
     hideAllSections();
     document.getElementById('mainContent').style.display = 'block';
@@ -562,7 +561,7 @@ function hideAllSections() {
     document.getElementById('legalSection').classList.remove('active');
 }
 
-// Smooth scroll (used in index.html)
+
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -570,7 +569,7 @@ function scrollToSection(sectionId) {
     }
 }
 
-// Purchase form handler
+
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('purchaseForm');
     if (form) {
@@ -583,7 +582,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Navbar background on scroll
+
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
