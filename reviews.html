@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AudioLuxe - Customer Reviews</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page-specific enhancements */
+        .back-btn {
+            position: absolute;
+            top: 100px;
+            left: 20px;
+            z-index: 10;
+        }
+        .back-btn .btn {
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .review-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 1.8rem;
+            height: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(99,102,241,0.1);
+            border-color: var(--primary-color);
+        }
+        .review-stars {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .review-text {
+            color: var(--text-muted);
+            font-style: normal;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .review-author {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        .review-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="bi bi-soundwave me-2"></i>AudioLuxe</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="earbuds.html">Earbuds</a></li>
+                    <li class="nav-item"><a class="nav-link" href="headphones.html">Headphones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="speakers.html">Speakers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="reviews.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item ms-3">
+                        <button class="btn btn-primary-custom" onclick="showPurchaseModal('AudioLuxe Elite', 'https://images.unsplash.com/photo-1606220838315-056192d5e927?w=400&h=400&fit=crop', 199, 'Premium wireless earbuds with ANC')">
+                            <i class="bi bi-cart-fill me-2"></i>Buy Now
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Back to Home button -->
+    <div class="back-btn">
+        <a href="index.html" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left me-2"></i>Back to Home
+        </a>
+    </div>
+
+    <!-- Page Header -->
+    <section class="hero-section" style="padding: 80px 0 40px;">
+        <div class="container text-center">
+            <h1 class="hero-title">Customer Reviews</h1>
+            <p class="hero-subtitle">Real stories from real people who love AudioLuxe</p>
+        </div>
+    </section>
+
+    <!-- Reviews Grid -->
+    <section class="reviews-section py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Review 1: Varshini -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="review-text">"I've been using these for my daily commute, and the noise cancellation is a lifesaver! Battery lasts forever. Totally worth every rupee."</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="review-author">— Varshini</span>
+                            <span class="review-date">2 days ago</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 2: Deepa -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="review-text">"Got these for my son, he absolutely loves them. The sound clarity is amazing, and they fit perfectly. Delivery was super fast!"</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="review-author">— Deepa</span>
+                            <span class="review-date">last week</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 3: Ashwini -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                        </div>
+                        <p class="review-text">"The bass is just right – not too heavy, not too light. Perfect for my workout sessions. Highly recommend to all fitness lovers!"</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="review-author">— Ashwini</span>
+                            <span class="review-date">2 weeks ago</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 4: Vijayendra -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="review-text">"Delivery was quick, packaging was great. The earbuds are super comfortable and the touch controls are very intuitive. Value for money!"</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="review-author">— Vijayendra</span>
+                            <span class="review-date">a month ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3 class="footer-logo">AudioLuxe</h3>
+                    <p>Creating exceptional audio experiences for music lovers everywhere.</p>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="mb-3">Products</h5>
+                    <ul class="footer-links">
+                        <li><a href="earbuds.html">Earbuds</a></li>
+                        <li><a href="headphones.html">Headphones</a></li>
+                        <li><a href="speakers.html">Speakers</a></li>
+                        <li><a href="#" onclick="showProducts('accessories'); return false;">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="mb-3">Support</h5>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showSupport('guides'); return false;">User Guides</a></li>
+                        <li><a href="#" onclick="showSupport('warranty'); return false;">Warranty</a></li>
+                        <li><a href="#" onclick="showSupport('contact'); return false;">Contact Us</a></li>
+                        <li><a href="#" onclick="showSupport('faqs'); return false;">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="mb-3">Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showCompany('about'); return false;">About Us</a></li>
+                        <li><a href="#" onclick="showCompany('careers'); return false;">Careers</a></li>
+                        <li><a href="#" onclick="showCompany('press'); return false;">Press</a></li>
+                        <li><a href="#" onclick="showCompany('blog'); return false;">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="mb-3">Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showLegal('privacy'); return false;">Privacy Policy</a></li>
+                        <li><a href="#" onclick="showLegal('terms'); return false;">Terms of Service</a></li>
+                        <li><a href="#" onclick="showLegal('cookies'); return false;">Cookie Policy</a></li>
+                        <li><a href="#" onclick="showLegal('accessibility'); return false;">Accessibility</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 AudioLuxe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Purchase Modal (with dynamic product support) -->
+    <div class="modal fade" id="purchaseModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Complete Your Purchase</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="" alt="Product" class="img-fluid rounded" id="modalProductImage">
+                            <h4 class="mt-3" id="modalProductName"></h4>
+                            <p class="text-muted" id="modalProductDesc"></p>
+                            <div class="price-tag"><span id="modalProductPrice"></span></div>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Order Summary</h5>
+                            <hr>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span id="orderProductName"></span>
+                                <span id="orderProductPrice"></span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Shipping</span>
+                                <span class="text-success">FREE</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Tax</span>
+                                <span id="orderTax"></span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between mb-3">
+                                <strong>Total</strong>
+                                <strong id="orderTotal"></strong>
+                            </div>
+                            <form id="purchaseForm">
+                                <div class="mb-3"><input type="text" class="form-control" placeholder="Full Name" required></div>
+                                <div class="mb-3"><input type="email" class="form-control" placeholder="Email" required></div>
+                                <div class="mb-3"><textarea class="form-control" rows="2" placeholder="Shipping Address" required></textarea></div>
+                                <div class="mb-3">
+                                    <label class="form-label">Payment Method</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="paymentMethod" id="cod" value="cod" checked>
+                                        <label class="form-check-label" for="cod"><i class="bi bi-cash me-2"></i>Cash on Delivery (COD)</label>
+                                    </div>
+                                    <div class="form-text text-muted">Pay with cash when your order arrives. No card needed.</div>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100"><i class="bi bi-lock me-2"></i>Place Order (COD)</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal (for Support/Company/Legal) -->
+    <div class="modal fade" id="infoModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalTitle"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="infoModalBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>

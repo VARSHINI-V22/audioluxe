@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AudioLuxe - Gallery</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page-specific enhancements */
+        .back-btn {
+            position: absolute;
+            top: 100px;
+            left: 20px;
+            z-index: 10;
+        }
+        .back-btn .btn {
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .gallery-item {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            aspect-ratio: 1 / 1; /* Makes all items square */
+        }
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 35px rgba(99,102,241,0.2);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures images fill the square without distortion */
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        .gallery-title {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 0;
+        }
+        .section-title {
+            margin-bottom: 1rem;
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .back-btn {
+                top: 80px;
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (same as all pages) -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="bi bi-soundwave me-2"></i>AudioLuxe</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="earbuds.html">Earbuds</a></li>
+                    <li class="nav-item"><a class="nav-link" href="headphones.html">Headphones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="speakers.html">Speakers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item ms-3">
+                        <button class="btn btn-primary-custom" onclick="showPurchaseModal()">
+                            <i class="bi bi-cart-fill me-2"></i>Buy Now
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Back to Home button -->
+    <div class="back-btn">
+        <a href="index.html" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left me-2"></i>Back to Home
+        </a>
+    </div>
+
+    <!-- Hero / Page Header -->
+    <section class="hero-section" style="padding: 80px 0 40px;">
+        <div class="container text-center">
+            <h1 class="hero-title">Product Gallery</h1>
+            <p class="hero-subtitle">See AudioLuxe Elite from every angle</p>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-section py-5">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Ergonomic Design -->
+                <div class="col-md-6">
+                    <div class="gallery-item position-relative" onclick="showGalleryDetail('ergonomic')">
+                        <img src="https://m.media-amazon.com/images/I/715fNrGN+ML._AC_.jpg" alt="Ergonomic Design">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">Ergonomic Design</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Comfortable Fit -->
+                <div class="col-md-6">
+                    <div class="gallery-item position-relative" onclick="showGalleryDetail('comfort')">
+                        <img src="https://www.cybertime.com/wp-content/uploads/2020/10/HQ834-1.jpg" alt="Comfortable Fit">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">Comfortable Fit</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Compact Charging Case -->
+                <div class="col-md-4">
+                    <div class="gallery-item position-relative" onclick="showGalleryDetail('charging')">
+                        <img src="https://m.media-amazon.com/images/I/71HsB2QVrgL.jpg" alt="Charging Case">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">Compact Charging Case</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Active Lifestyle -->
+                <div class="col-md-4">
+                    <div class="gallery-item position-relative" onclick="showGalleryDetail('lifestyle')">
+                        <img src="https://thumbs.dreamstime.com/b/black-woman-fitness-stretching-exercise-earphones-music-motivation-active-lifestyle-outdoors-african-american-strong-focus-259249029.jpg" alt="Active Lifestyle">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">Active Lifestyle</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Complete Package -->
+                <div class="col-md-4">
+                    <div class="gallery-item position-relative" onclick="showGalleryDetail('package')">
+                        <img src="https://cdn.mos.cms.futurecdn.net/vWUM26ht97JKhqcxP5HDqC.jpg" alt="Complete Package">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">Complete Package</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Detail Modal -->
+    <div class="modal fade" id="galleryModal" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="galleryModalTitle">Gallery Detail</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="galleryModalBody">
+                    <!-- Content will be dynamically loaded -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (same as index) -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3 class="footer-logo">AudioLuxe</h3>
+                    <p>Creating exceptional audio experiences for music lovers everywhere.</p>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="mb-3">Products</h5>
+                    <ul class="footer-links">
+                        <li><a href="earbuds.html">Earbuds</a></li>
+                        <li><a href="headphones.html">Headphones</a></li>
+                        <li><a href="speakers.html">Speakers</a></li>
+                        <li><a href="#" onclick="showProducts('accessories'); return false;">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="mb-3">Support</h5>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showSupport('guides'); return false;">User Guides</a></li>
+                        <li><a href="#" onclick="showSupport('warranty'); return false;">Warranty</a></li>
+                        <li><a href="#" onclick="showSupport('contact'); return false;">Contact Us</a></li>
+                        <li><a href="#" onclick="showSupport('faqs'); return false;">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="mb-3">Company</h5>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showCompany('about'); return false;">About Us</a></li>
+                        <li><a href="#" onclick="showCompany('careers'); return false;">Careers</a></li>
+                        <li><a href="#" onclick="showCompany('press'); return false;">Press</a></li>
+                        <li><a href="#" onclick="showCompany('blog'); return false;">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="mb-3">Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showLegal('privacy'); return false;">Privacy Policy</a></li>
+                        <li><a href="#" onclick="showLegal('terms'); return false;">Terms of Service</a></li>
+                        <li><a href="#" onclick="showLegal('cookies'); return false;">Cookie Policy</a></li>
+                        <li><a href="#" onclick="showLegal('accessibility'); return false;">Accessibility</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 AudioLuxe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Purchase Modal (same as index) -->
+    <div class="modal fade" id="purchaseModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Complete Your Purchase</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1606220838315-056192d5e927?w=400&h=400&fit=crop" alt="AudioLuxe Elite" class="img-fluid rounded">
+                            <h4 class="mt-3">AudioLuxe Elite</h4>
+                            <p class="text-muted">Premium Wireless Earbuds</p>
+                            <div class="price-tag"><span>$199</span></div>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Order Summary</h5>
+                            <hr>
+                            <div class="d-flex justify-content-between mb-2"><span>AudioLuxe Elite</span><span>$199</span></div>
+                            <div class="d-flex justify-content-between mb-2"><span>Shipping</span><span class="text-success">FREE</span></div>
+                            <div class="d-flex justify-content-between mb-2"><span>Tax</span><span>$19.90</span></div>
+                            <hr>
+                            <div class="d-flex justify-content-between mb-3"><strong>Total</strong><strong>$218.90</strong></div>
+                            <form id="purchaseForm">
+                                <div class="mb-3"><input type="text" class="form-control" placeholder="Full Name" required></div>
+                                <div class="mb-3"><input type="email" class="form-control" placeholder="Email" required></div>
+                                <div class="mb-3"><textarea class="form-control" rows="2" placeholder="Shipping Address" required></textarea></div>
+                                <div class="mb-3">
+                                    <label class="form-label">Payment Method</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="paymentMethod" id="cod" value="cod" checked>
+                                        <label class="form-check-label" for="cod"><i class="bi bi-cash me-2"></i>Cash on Delivery (COD)</label>
+                                    </div>
+                                    <div class="form-text text-muted">Pay with cash when your order arrives. No card needed.</div>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100"><i class="bi bi-lock me-2"></i>Place Order (COD)</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Modal (for Support/Company/Legal) -->
+    <div class="modal fade" id="infoModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="infoModalTitle"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="infoModalBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
